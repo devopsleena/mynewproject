@@ -232,7 +232,7 @@ footer{
 
 <section class="hero">
     <div class="hero-text">
-        <h1>Upgrade Your <span>Shopping</span> Experience</h1>
+        <h1>Upgrade Your summer <span>Shopping</span> Experience</h1>
         <p>Discover premium products with modern UI shopping experience</p>
         <button class="btn btn-primary">Shop Now</button>
         <button class="btn btn-outline">Explore</button>
