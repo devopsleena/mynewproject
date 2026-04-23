@@ -1,192 +1,302 @@
-:root {
-    --primary: #0a2540;
-    --accent: #5b7cfa;
-    --accent2: #00d4ff;
-    --light: #f6f9fc;
-    --dark: #1a1a1a;
-    --gray: #6b7280;
-    --success: #22c55e;
-    --shadow: 0 10px 30px rgba(0,0,0,0.08);
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>NexusShop - Modern UI</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+:root{
+    --bg:#0b1220;
+    --card:#111a2e;
+    --glass: rgba(255,255,255,0.08);
+    --text:#eaf0ff;
+    --muted:#9aa4b2;
+    --accent:#6c5ce7;
+    --accent2:#00d4ff;
+    --success:#00c896;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,sans-serif;}
+
+body{
+    background: radial-gradient(circle at top,#111a2e,#070b14);
+    color:var(--text);
 }
 
-body {
-    font-family: 'Inter', sans-serif;
-    background: #f9fafb;
-    color: var(--dark);
+/* HEADER */
+header{
+    position:sticky;
+    top:0;
+    backdrop-filter: blur(15px);
+    background: var(--glass);
+    border-bottom:1px solid rgba(255,255,255,0.08);
+    z-index:1000;
 }
 
-/* HEADER (Glass Effect) */
-header {
-    background: rgba(255,255,255,0.75);
-    backdrop-filter: blur(12px);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
+.header-container{
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:15px 20px;
 }
 
-.header-container {
-    padding: 14px 0;
+.logo{
+    font-family:Poppins;
+    font-size:24px;
+    font-weight:700;
+    color:white;
 }
-
-/* LOGO */
-.logo {
-    font-size: 26px;
-    font-weight: 800;
-    background: linear-gradient(45deg, var(--primary), var(--accent));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
+.logo span{color:var(--accent2);}
 
 /* NAV */
-nav ul li a {
-    position: relative;
-    transition: 0.3s;
+nav ul{display:flex;gap:20px;list-style:none;}
+nav a{
+    color:var(--muted);
+    text-decoration:none;
+    transition:.3s;
+    font-weight:500;
+}
+nav a:hover{color:white}
+
+/* HERO */
+.hero{
+    height:520px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    background: linear-gradient(135deg,#6c5ce7,#00d4ff);
+    position:relative;
+    overflow:hidden;
 }
 
-nav ul li a::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -4px;
-    width: 0%;
-    height: 2px;
-    background: var(--accent);
-    transition: 0.3s;
+.hero::after{
+    content:"";
+    position:absolute;
+    width:600px;height:600px;
+    background:rgba(255,255,255,0.15);
+    filter:blur(100px);
+    border-radius:50%;
 }
 
-nav ul li a:hover::after {
-    width: 100%;
+.hero-content{
+    position:relative;
+    max-width:700px;
 }
 
-/* SEARCH */
-.search-bar {
-    border-radius: 50px;
-    background: white;
-    box-shadow: var(--shadow);
-    border: 1px solid #eee;
+.hero h1{
+    font-size:52px;
+    font-family:Poppins;
 }
 
-/* HERO (Modern Gradient + Depth) */
-.hero {
-    height: 600px;
-    background: linear-gradient(135deg, rgba(10,37,64,0.95), rgba(91,124,250,0.85)),
-                url('https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?auto=format&fit=crop&w=1600&q=80');
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    text-align: center;
+.hero p{
+    margin:15px 0;
+    color:#f1f1f1;
+    opacity:.9;
 }
 
-.hero h1 {
-    font-size: 56px;
-    font-weight: 700;
-    letter-spacing: -1px;
+.btn{
+    display:inline-block;
+    padding:12px 25px;
+    border-radius:30px;
+    margin:10px;
+    text-decoration:none;
+    font-weight:600;
+    transition:.3s;
 }
 
-.hero p {
-    opacity: 0.9;
+.btn-primary{
+    background:white;
+    color:#111;
 }
 
-/* BUTTONS */
-.btn {
-    padding: 14px 34px;
-    border-radius: 50px;
-    transition: 0.3s ease;
-    font-weight: 600;
+.btn-primary:hover{transform:translateY(-3px);}
+
+.btn-secondary{
+    border:1px solid white;
+    color:white;
 }
 
-.btn-primary {
-    background: linear-gradient(45deg, var(--accent), var(--accent2));
-    box-shadow: 0 10px 25px rgba(91,124,250,0.3);
+/* SECTIONS */
+.section-title{
+    text-align:center;
+    margin:60px 0 30px;
+}
+.section-title h2{
+    font-size:32px;
+    font-family:Poppins;
 }
 
-.btn-primary:hover {
-    transform: translateY(-3px);
+/* PRODUCTS */
+.products{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:20px;
+    padding:0 20px;
 }
 
-.btn-secondary {
-    border: 2px solid white;
+.product-card{
+    background:var(--card);
+    border-radius:16px;
+    overflow:hidden;
+    transition:.4s;
+    border:1px solid rgba(255,255,255,0.05);
 }
 
-/* CATEGORY CARDS (Modern Glass Cards) */
-.category-card {
-    border-radius: 16px;
-    background: white;
-    box-shadow: var(--shadow);
-    transition: 0.3s;
+.product-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 10px 30px rgba(0,212,255,0.2);
 }
 
-.category-card:hover {
-    transform: translateY(-12px) scale(1.02);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+.product-img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
 }
 
-/* PRODUCT CARDS (Premium look) */
-.product-card {
-    border-radius: 18px;
-    overflow: hidden;
-    background: white;
-    box-shadow: var(--shadow);
-    transition: 0.3s;
+.product-info{
+    padding:15px;
 }
 
-.product-card:hover {
-    transform: translateY(-10px);
+.price{
+    color:var(--accent2);
+    font-weight:700;
 }
 
-.product-img {
-    transition: 0.5s;
+.add-to-cart{
+    width:100%;
+    padding:10px;
+    border:none;
+    background:linear-gradient(90deg,var(--accent),var(--accent2));
+    color:white;
+    border-radius:10px;
+    cursor:pointer;
+    margin-top:10px;
+    transition:.3s;
 }
 
-.product-card:hover .product-img {
-    transform: scale(1.08);
+.add-to-cart:hover{
+    opacity:.85;
+    transform:scale(1.03);
 }
 
-/* ADD TO CART BUTTON */
-.add-to-cart {
-    border-radius: 50px;
-    background: linear-gradient(45deg, var(--primary), var(--accent));
-    transition: 0.3s;
+/* CATEGORY */
+.categories{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    gap:15px;
+    padding:0 20px;
 }
 
-.add-to-cart:hover {
-    transform: scale(1.05);
+.category-card{
+    background:rgba(255,255,255,0.05);
+    padding:20px;
+    text-align:center;
+    border-radius:14px;
+    transition:.3s;
 }
 
-/* DEAL SECTION */
-.deal-container {
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: var(--shadow);
-}
-
-/* TESTIMONIAL */
-.testimonial-card {
-    border-radius: 18px;
-    box-shadow: var(--shadow);
-}
-
-/* NEWSLETTER (Gradient Upgrade) */
-.newsletter {
-    background: linear-gradient(135deg, var(--primary), var(--accent));
+.category-card:hover{
+    background:rgba(255,255,255,0.1);
+    transform:translateY(-5px);
 }
 
 /* FOOTER */
-footer {
-    background: #0b0f1a;
+footer{
+    margin-top:60px;
+    padding:40px 20px;
+    text-align:center;
+    color:var(--muted);
+    border-top:1px solid rgba(255,255,255,0.08);
 }
 
-/* RESPONSIVE IMPROVEMENTS */
-@media (max-width: 768px) {
-    .hero h1 {
-        font-size: 38px;
-    }
-}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-container">
+    <div class="logo">Nexus<span>Shop</span></div>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Shop</a></li>
+        <li><a href="#">Deals</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <h1>Modern Shopping Experience</h1>
+    <p>Discover premium products with a sleek and futuristic UI design</p>
+    <a href="#" class="btn btn-primary">Shop Now</a>
+    <a href="#" class="btn btn-secondary">Explore</a>
+  </div>
+</section>
+
+<div class="section-title">
+  <h2>Categories</h2>
+</div>
+
+<div class="categories">
+  <div class="category-card">Phones</div>
+  <div class="category-card">Laptops</div>
+  <div class="category-card">Fashion</div>
+  <div class="category-card">Gadgets</div>
+</div>
+
+<div class="section-title">
+  <h2>Trending Products</h2>
+</div>
+
+<div class="products">
+
+  <div class="product-card">
+    <img class="product-img" src="https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb" />
+    <div class="product-info">
+      <h3>iPhone 14 Pro</h3>
+      <p class="price">$1099</p>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="product-card">
+    <img class="product-img" src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45"/>
+    <div class="product-info">
+      <h3>MacBook Pro</h3>
+      <p class="price">$1999</p>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="product-card">
+    <img class="product-img" src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f"/>
+    <div class="product-info">
+      <h3>Sony Camera</h3>
+      <p class="price">$2499</p>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  © 2023 NexusShop - Modern UI Upgrade
+</footer>
+
+</body>
+</html>
